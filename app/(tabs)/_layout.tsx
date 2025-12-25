@@ -1,34 +1,64 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: "#0A84FF",
+      }}
+    >
+      {/* ✅ Visible Tabs */}
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Dashboard",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="members"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Members",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="people" size={size} color={color} />
+          ),
         }}
+      />
+
+      <Tabs.Screen
+        name="payment"
+        options={{
+          title: "Payments",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="card" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="cctv"
+        options={{
+          title: "CCTV",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="videocam" size={size} color={color} />
+          ),
+        }}
+      />
+
+      {/* ❌ Hidden Routes */}
+      <Tabs.Screen
+        name="settings"
+        options={{ href: null }}
+      />
+
+      <Tabs.Screen
+        name="reminder"
+        options={{ href: null }}
       />
     </Tabs>
   );

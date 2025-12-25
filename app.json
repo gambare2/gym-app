@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "gym",
-    "slug": "gym",
+    "slug": "gym-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,6 +12,8 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.prince67.gymapp",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -43,6 +45,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "27d94e15-b5d9-4bd6-8823-db17cf6ae5b1"
+      }
+    },
+    "owner": "prince_67"
   }
 }
